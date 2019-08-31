@@ -1,0 +1,15 @@
+#icon-menu {
+	width: 100vw;
+	height: 100vh;
+}
+
+.mobile-menu {
+	display: block;
+	border-radius: 2px;
+	width: 100px;
+	height: 100px;
+}
+
+line {
+	border-radius: 8px;
+}

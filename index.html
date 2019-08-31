@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+
+	<body>
+		<div class="container">
+			<a class="mobile-menu" href="#">
+				<svg>
+					<circle cx="50" cy="50" r="50" fill="black" class="circ" />
+					<g style="stroke:white; stroke-width:4">
+						<line id="top" x1="25" y1="30" x2="75" y2="30" />
+						<line id="middle" x1="25" y1="50" x2="75" y2="50" />
+						<line id="bottom" x1="25" y1="70" x2="75" y2="70" />
+					</g>
+				</svg>
+			</a>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+		<script>
+			var menuMorphTL = new TimelineMax({ paused: true, reversed: true })
+				.to("svg", 0, { attr: { width: 1500, height: 900 } })
+				.to("circle", 0.15, { attr: { fill: "aqua", r: 1000 } })
+				.to("#top", 0.1, { transformOrigin: "100% 100%", y: 2 })
+				.to("#bottom", 0.1, { transformOrigin: "100% 100%", y: -2 }, 0)
+				.to("#middle", 0.1, { opacity: 0 }, 0)
+				.to("#top", 0.1, { rotation: -45 }, "R")
+				.to("#bottom", 0.1, { rotation: 45 }, "R");
+
+			$(".mobile-menu").click(function() {
+				menuMorphTL.reversed() ? menuMorphTL.play() : menuMorphTL.reverse();
+			});
+		</script>
+	</body>
+</html>
